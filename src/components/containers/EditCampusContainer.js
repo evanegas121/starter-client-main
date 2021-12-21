@@ -9,16 +9,15 @@ import { editCampusThunk, fetchCampusThunk, editStudentThunk } from '../../store
 class EditCampusContainer extends Component {
     constructor(props){
         super(props);
-        let toEdit = this.props.fetchCampus(this.props.match.params.id);
         this.state = {
-          name: toEdit.name,
-          address: toEdit.address,
-          description: toEdit.description,
-          imageURL: toEdit.imageURL,
+          name: "",
+          address: "",
+          description: " ",
+          imageURL: "",
           redirect: false,
-          redirectId: toEdit.id,
-          addstudent: "",
-          removestudent: "",
+          redirectId: null,
+          addstudent: " ",
+          removestudent: " ",
         };
     }
 
@@ -42,12 +41,9 @@ class EditCampusContainer extends Component {
         await this.props.editCampus(campus);
 
 
-        //// Add and remove students ////
 
-        // Split input list into an array of IDs to add
         this.setState({"addstudent": this.state.addstudent.split(",")});
 
-        // For each ID in the array, change their campus ID to this one
         await this.state.addstudent.forEach((char) => {
           let studier = {id: char, campusId: campus.id};
           this.props.editStudent(studier);
@@ -63,7 +59,7 @@ class EditCampusContainer extends Component {
           this.props.editStudent(studier);
         });
 
-        // Reset state after updating
+        
         this.setState({
           name: "",
           address: "",

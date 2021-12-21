@@ -9,15 +9,14 @@ import { editStudentThunk, fetchStudentThunk } from '../../store/thunks';
 class EditStudentContainer extends Component {
     constructor(props){
         super(props);
-        let toEdit = this.props.fetchStudent(this.props.match.params.id);
         this.state = {
-          firstname: toEdit.firstname,
-          lastname: toEdit.lastname,
-          email: toEdit.email,
-          gpa: toEdit.gpa,
-          campusId: toEdit.campusId,
+          firstname: "",
+          lastname: "",
+          email: "",
+          gpa: null,
+          campusId: null,
           redirect: false,
-          redirectId: toEdit.id
+          redirectId: null
         };
     }
 

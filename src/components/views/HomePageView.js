@@ -41,9 +41,9 @@ const HomePageView = () => {
     <div className={classes.root}>
       <AppBar position="static" elevation={0} className={classes.appBar}>
         <Toolbar>
-          <Typography variant="h6" className={classes.title} color="inherit" >
-            CRUD App
-          </Typography>
+        <Link variant="h6" className={classes.title} to={'/'} color="inherit" >
+        Home
+      </Link>
 
           <Link className={classes.links} to={'/campuses'} >
             <Button variant="contained" color="primary" style={{marginRight: '10px'}}>

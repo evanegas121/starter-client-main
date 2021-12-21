@@ -10,12 +10,13 @@ class NewStudentContainer extends Component {
     constructor(props){
         super(props);
         this.state = {
-          firstname: "", 
-          lastname: "", 
-          email:"",
-          gpa:"",
-          campusId: null, 
-          redirect: false, 
+          firstname: "",
+          lastname: "",
+          email: "",
+          imageUrl: "",
+          gpa: null,
+          campusId: null,
+          redirect: false,
           redirectId: null
         };
     }
@@ -32,9 +33,9 @@ class NewStudentContainer extends Component {
         let student = {
             firstname: this.state.firstname,
             lastname: this.state.lastname,
-            campusId: this.state.campusId,
             email: this.state.email,
-            gpa: this.state.gpa
+            gpa: this.state.gpa,
+            campusId: this.state.campusId,
     
         };
         
@@ -44,7 +45,7 @@ class NewStudentContainer extends Component {
           firstname: "", 
           lastname: "", 
           email:"",
-          gpa:"",
+          gpa:null,
           campusId: null, 
           redirect: true, 
           redirectId: newStudent.id

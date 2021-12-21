@@ -39,26 +39,6 @@ class EditCampusContainer extends Component {
         };
 
         await this.props.editCampus(campus);
-
-
-
-        this.setState({"addstudent": this.state.addstudent.split(",")});
-
-        await this.state.addstudent.forEach((char) => {
-          let studier = {id: char, campusId: campus.id};
-          this.props.editStudent(studier);
-        });
-
-        // Split input list into an array of IDs to remove
-        this.setState({"removestudent": this.state.removestudent.split(",")});
-
-        // For each ID in the array, remove their campus ID
-        // Known bug: remove works from any campus, even if the student doesn't go there.
-        await this.state.removestudent.forEach((char) => {
-          let studier = {id: char, campusId: null};
-          this.props.editStudent(studier);
-        });
-
         
         this.setState({
           name: "",
@@ -92,7 +72,6 @@ const mapDispatch = (dispatch) => {
     return({
         editCampus: (campus) => dispatch(editCampusThunk(campus)),
         fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
-        editStudent: (student) => dispatch(editStudentThunk(student)),
     })
 }
 

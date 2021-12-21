@@ -36,6 +36,7 @@ const useStyles = makeStyles(theme => ({
 
 const AllCampusesView = (props) => {
   const classes = useStyles();
+  const {deleteCampus} = props;
   if (!props.allCampuses.length) {
     return <div>There are no campuses.
       <Link to={'/newcampus'}>
@@ -71,7 +72,9 @@ const AllCampusesView = (props) => {
             <h1>{campus.name}</h1>
           </Link>
           <p>{campus.description}</p>
+          <button onClick={() => deleteCampus(campus.id)}>Delete </button> 
         </div>
+        
       ))}
       <Link to={`/newcampus`}>
         <button>Add New Student</button>

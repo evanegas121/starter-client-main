@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -38,7 +37,12 @@ const useStyles = makeStyles(theme => ({
 const AllCampusesView = (props) => {
   const classes = useStyles();
   if (!props.allCampuses.length) {
-    return <div>There are no campuses.</div>;
+    return <div>There are no campuses.
+      <Link to={'/newcampus'}>
+        <button>Add New Campus</button>
+      </Link>
+    </div>;
+    
   }
   return (
     <><AppBar position="static" elevation={0} className={classes.appBar}>
@@ -69,6 +73,9 @@ const AllCampusesView = (props) => {
           <p>{campus.description}</p>
         </div>
       ))}
+      <Link to={`/newcampus`}>
+        <button>Add New Student</button>
+      </Link>
     </div></>
   );
 };
